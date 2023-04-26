@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo de alteração de href com JavaScript</title>
+  </head>
+  <body>
+    <a id="link" href="pagina.html?razaoSocialTitulo=RAR%20SERVICOS">Clique aqui para alterar o href</a>
+    <br><br>
+    <button onclick="alterarHref()">Alterar href</button>
+    <script>
+        function alterarHref() {
+          var link = document.getElementById("link");
+          var href = link.getAttribute("href");
+          var novoHref = href.replace("RAR%20SERVICOS", "JOAO%20SERVICOS");
+          link.setAttribute("href", novoHref);
+        }
+      </script>
+  </body>
+  </html>      

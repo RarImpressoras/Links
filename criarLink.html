@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alterar parâmetros do link</title>
+</head>
+<body>
+	<form>
+		<label for="serie">Série:</label>
+		<input type="text" id="serie" name="serie"><br><br>
+		<label for="modelo">Modelo:</label>
+		<input type="text" id="modelo" name="modelo"><br><br>
+		<input type="submit" value="Enviar">
+	</form>
+	<br>
+	<p>Link atual: <a href="index.html?serie=554415&modelo=M204000000">index.html?serie=554415&modelo=M204000000</a></p>
+	<p>Link alterado: <a href="index.html?serie=" + document.getElementById("serie").value + "&modelo=" + document.getElementById("modelo").value>Alterar link</a></p>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/phonerefer/image/upload/v1575096088/ve0o2n85nfvgdatgqer2.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#343a40" />
+    <meta name="description" content="Links To My Accounts | Developed By - Your Name" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Links - Your Name</title>
+    <style>
+        body {
+            background-color: #faf8ef;
+        }
+
+        h5 {
+            color: #343a40;
+        }
+
+        .name {
+            color: #343a40;
+        }
+
+        .love {
+            color: #343a40 !important;
+        }
+
+        /*----------------- Mail-------------------- */
+        #email {
+            text-decoration: none;
+            float: right;
+            color: #343a40;
+        }
+
+        .footer {
+            margin-top: 5% !important;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 479px) {
+            .footer {
+                margin-top: 35% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center media mt-5">
+
+            <div class="media-body m-2">
+                <img src="LOGO.PNG " class="m-3 rounded-circle" alt="image" width="95px" height="95px">
+                <h5 class="align-items-center mt-2">@rarimpressoras </h5>
+                <p>Olá!
+                    Clique nos botões abaixo de acordo com sua solicitação.</p>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a id="meu-link" href="https://api.whatsapp.com/send?phone=5511942162164&text=" class="btn btn-outline-dark btn-block" role="button" target="_blank"><i
+                    class="fab fa-whatsapp"> &nbsp;</i>Atendimento por WhatsApp</a>
+            <br>
+            <a href="https://rarimpressoras.github.io/SolicitarChamados/" class="btn btn-outline-dark btn-block"
+                role="button" target="_blank"><i class="fab fa-codepen">&nbsp;</i>Atendimento pelo Site</a>
+            <br>
+            <a href="https://www.youtube.com/@EmpresaRAR" class="btn btn-outline-dark btn-block" role="button"
+                target="_blank"><i class="fab fa-youtube">&nbsp;</i>YouTube - Videos e Tutoriais</a>
+            <br>
+            <a href="https://www.instagram.com/rarimpressoras/" class="btn btn-outline-dark btn-block" role="button"
+                target="_blank"><i class="fab fa-instagram">&nbsp;</i>Instagram</a>
+            <br>
+            <a href="https://www.rar.com.br/" class="btn btn-outline-dark btn-block" role="button" target="_blank"><i
+                    class="fab fa-store">&nbsp;</i>Loja</a>
+            <br>
+        </div>
+        <!--------------------Footer---------------------------->
+        <div class="footer mt-5">
+
+        </div>
+    </div>
+    <script>
+        // Suponha que a URL seja http://exemplo.com.br?serie=554415&modelo=M2040
+
+        // Obter a parte da URL que contém os parâmetros de consulta
+        var query = window.location.search;
+
+        // Remover o ponto de interrogação no início da string
+        query = query.substring(1);
+
+        // Dividir a string em um array de parâmetros
+        var params = query.split("&");
+
+        // Criar um objeto para armazenar os parâmetros
+        var urlParams = {};
+
+        // Iterar sobre os parâmetros e adicionar ao objeto
+        for (var i = 0; i < params.length; i++) {
+            var param = params[i].split("=");
+            var key = decodeURIComponent(param[0]);
+            var value = decodeURIComponent(param[1]);
+            urlParams[key] = value;
+        }
+
+        // Atribuir os valores dos parâmetros a variáveis
+        var serie1 = urlParams["serie"];
+        var modelo1 = urlParams["modelo"];
+
+        console.log(serie1); // 554415
+        console.log(modelo1); // M2040
+
+
+        var mensagem1 = "Estou com problema na Impressora " + modelo1 + ", número de série " + serie1;
+        var url1 = "https://api.whatsapp.com/send?phone=5511942162164&text=" + encodeURIComponent(mensagem1);
+         // obtém a referência ao link que deve ser atualizado
+      const link = document.getElementById("meu-link");
+
+        // define o valor do Href como a variável url1
+        link.href = url1;
+
+    </script>
+</body>
+
+</html>
