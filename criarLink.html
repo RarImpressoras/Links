@@ -50,7 +50,7 @@ text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
             var serie = document.getElementById("serie").value;
             var modelo = document.getElementById("modelo").value;
             var link = "https://rarimpressoras.github.io/Links/?serie=" + serie + "&modelo=" + modelo;
-            var texto = "Empresa " + empresa + "; Numero de Serie: " + serie + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
+            var texto = "Empresa " + empresa + "\nNumero de Serie: " + serie + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
             navigator.clipboard.writeText(link);
             
         const qrCode = new QRCodeStyling({
