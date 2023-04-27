@@ -84,8 +84,6 @@
         </div>
     </div>
     <script>
-        // Suponha que a URL seja http://exemplo.com.br?serie=554415&modelo=M2040
-
         // Obter a parte da URL que contém os parâmetros de consulta
         var query = window.location.search;
 
@@ -112,6 +110,9 @@
 
         console.log(serie1); // 554415
         console.log(modelo1); // M2040
+        
+        var url2 = 'https://rarimpressoras.github.io/SolicitarChamados/'+'?' + query    ;
+
 
 
         var mensagem1 = "Estou com problema na Impressora *" + modelo1 + "*, número de série *" + serie1 + "*";
