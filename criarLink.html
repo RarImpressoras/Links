@@ -36,13 +36,16 @@ text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
         <button type="button" onclick="copiarLink()">Copiar Link</button> <br><br>  
     </form>
 
-        <div class="border p-2 d-flex flex-column justify-content-center align-items-center">
+        <div class="border p-2 d-flex flex-column justify-content-center align-items-center" id="elementoParaDownload">
           <div id="canvas"></div>
           <div id="msg" class="te"></div>
         </div>
       
   
     
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
     <script>
         function copiarLink() {      
             var empresa = document.getElementById("empresa").value;   
@@ -77,6 +80,36 @@ text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
         document.getElementById("msg").innerText = texto;
 
 
+        
+			// Seleciona o elemento a ser transformado em imagem
+			var elemento = document.getElementById("elementoParaDownload");
+
+// Captura a imagem do elemento com html2canvas
+html2canvas(elemento).then(function(canvas) {
+    // Converte o canvas para um objeto Blob
+    canvas.toBlob(function(blob) {
+        // Cria um objeto URL para a imagem
+        var url = URL.createObjectURL(blob);
+
+        // Cria um elemento de imagem e define a URL da imagem
+        var img = new Image();
+        img.src = url;
+
+        // Cria um elemento de área de transferência
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = url;
+        document.body.appendChild(input);
+
+        // Copia a URL da imagem para a área de transferência
+        input.select();
+        document.execCommand("copy");
+
+        // Remove o elemento de área de transferência e o objeto URL
+        document.body.removeChild(input);
+        URL.revokeObjectURL(url);
+    });
+});
         }
     </script>
 </body>
