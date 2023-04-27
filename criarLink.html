@@ -3,50 +3,80 @@
 
 <head>
     <title>Gerar Link</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+
+
+    <style>
+        .te{
+            margin-top: -5px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 10x;
+text-align: center;
+color: #FCB500;
+text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
+
+        }
+    </style>
 </head>
 
-<body>
+<body class="d-flex justify-content-center align-items-center flex-column">
+
     <form>
+        <label for="emrpesa">Empresa:</label>
+        <input type="text" id="empresa" name="empresa"><br><br>
         <label for="serie">Série:</label>
         <input type="text" id="serie" name="serie"><br><br>
         <label for="modelo">Modelo:</label>
         <input type="text" id="modelo" name="modelo"><br><br>
-        <button type="button" onclick="copiarLink()">Copiar Link</button>
+        <button type="button" onclick="copiarLink()">Copiar Link</button> <br><br>  
     </form>
 
-
-    <div id="canvas"></div>
-    <script type="text/javascript">
-
-        const qrCode = new QRCodeStyling({
-            width: 300,
-            height: 300,
-            type: "svg",
-            data: "https://www.facebook.com/",
-            image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
-            dotsOptions: {
-                color: "#4267b2",
-                type: "rounded"
-            },
-            backgroundOptions: {
-                color: "#e9ebee",
-            },
-            imageOptions: {
-                crossOrigin: "anonymous",
-                margin: 20
-            }
-        });
-
-        qrCode.append(document.getElementById("canvas"));
-        qrCode.download({ name: "qr", extension: "svg" });
-    </script>
+        <div class="border p-2 d-flex flex-column justify-content-center align-items-center">
+          <div id="canvas"></div>
+          <div id="msg" class="te"></div>
+        </div>
+      
+  
+    
     <script>
-        function copiarLink() {
+        function copiarLink() {      
+            var empresa = document.getElementById("empresa").value;   
             var serie = document.getElementById("serie").value;
             var modelo = document.getElementById("modelo").value;
             var link = "https://rarimpressoras.github.io/Links/?serie=" + serie + "&modelo=" + modelo;
+            var texto = "Empresa " + empresa + "; Numero de Serie: " + serie + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
             navigator.clipboard.writeText(link);
             alert("Link copiado para a área de transferência!");
+            
+        const qrCode = new QRCodeStyling({
+            width: 220,
+            height: 220,
+            type: "svg",
+            data: link,
+            image: "https://i.ibb.co/FB7bX14/Logo-Quadrada.png",
+            dotsOptions: {
+                color: "#000000",
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#ffffff",
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 0
+            }
+        });
+        
+        qrCode.append(document.getElementById("canvas"));
+
+        document.getElementById("msg").innerText = texto;
+
+
         }
     </script>
 </body>

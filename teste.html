@@ -1,19 +1,195 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Exemplo de alteração de href com JavaScript</title>
-  </head>
-  <body>
-    <a id="link" href="pagina.html?razaoSocialTitulo=RAR%20SERVICOS">Clique aqui para alterar o href</a>
-    <br><br>
-    <button onclick="alterarHref()">Alterar href</button>
-    <script>
-        function alterarHref() {
-          var link = document.getElementById("link");
-          var href = link.getAttribute("href");
-          var novoHref = href.replace("RAR%20SERVICOS", "JOAO%20SERVICOS");
-          link.setAttribute("href", novoHref);
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Styling</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        /* Regra de estilo para remover a barra de navegação na impressão */
+        @media print {
+          .tirar {
+            display: none;
+          }
         }
-      </script>
-  </body>
-  </html>      
+      </style>
+  
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+    <div class="tirar">
+        empresa1<input type="text" id="empresa1">
+        modelo1<input type="text" id="modelo1">
+        serie1<input type="text" id="serie1">
+        <button onclick="enviar3()">Enviar para o WhatsApp</button>    
+    </div>
+
+    <div class="tirar">
+        empresa2<input type="text" id="empresa2">
+        modelo2<input type="text" id="modelo2">
+        serie2<input type="text" id="serie2">
+        <button onclick="enviar2()">Enviar para o WhatsApp</button>  
+    </div>
+    <div class="tirar">
+        empresa3<input type="text" id="empresa3">
+        modelo3<input type="text" id="modelo3">
+        serie3<input type="text" id="serie3">
+        <button onclick="enviar1()">Enviar para o WhatsApp</button>  
+
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+
+    <script>
+        function enviar3(){
+        var modelo3 = document.getElementById("modelo3").value;
+            var serie3 = document.getElementById("serie3").value;
+            var empresa3 = document.getElementById("empresa3").value;
+            var mensagem3 = "Estou com problema na Impressora " + modelo3 + ", número de série " + serie3;
+            var texto3 = "empresa " + empresa3 + "; Numero de Serie: " + serie3 + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
+            var url3 = "https://api.whatsapp.com/send?phone=5511942162164&text=" + encodeURIComponent(mensagem3);
+            
+            const qrCode3 = new QRCodeStyling({
+                width: 300,
+                height: 300,
+                type: "svg",
+                data: "ccccccc",
+                image: "https://i.ibb.co/FB7bX14/Logo-Quadrada.png",
+                dotsOptions: {
+                    color: "#000000",
+                    type: "rounded"
+                },
+                backgroundOptions: {
+                    color: "#FFFFFF",
+                },
+                imageOptions: {
+                    margin: 0
+                }
+            });
+        
+            qrCode3.append(document.getElementById("qr3"));
+            document.getElementById("msg3").innerText = texto3; };
+        
+        </script>
+<script>
+
+function enviar2(){
+    var modelo2 = document.getElementById("modelo2").value;
+    var serie2 = document.getElementById("serie2").value;
+    var empresa2 = document.getElementById("empresa2").value;
+    var mensagem2 = "Estou com problema na Impressora " + modelo2 + ", número de série " + serie2;
+    var texto2 = "empresa " + empresa2 + "; Numero de Serie: " + serie2 + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
+    var url2 = "https://api.whatsapp.com/send?phone=5511942162164&text=" + encodeURIComponent(mensagem2);
+    
+    const qrCode2 = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        type: "svg",
+        data: "bbbbbbbb",
+        image: "https://i.ibb.co/FB7bX14/Logo-Quadrada.png",
+        dotsOptions: {
+            color: "#000000",
+            type: "rounded"
+        },
+        backgroundOptions: {
+            color: "#FFFFFF",
+        },
+        imageOptions: {
+            margin: 0
+        }
+    });
+
+    qrCode2.append(document.getElementById("qr2"));
+    document.getElementById("msg2").innerText = texto2;
+    
+};
+</script>
+
+<script>                                                                                                                                        
+    function enviar(){
+    var modelo1 = document.getElementById("modelo1").value;
+        var serie1 = document.getElementById("serie1").value;
+        var empresa1 = document.getElementById("empresa1").value;
+        var mensagem1 = "Estou com problema na Impressora " + modelo1 + ", número de série " + serie1;
+        var texto1 = "empresa " + empresa1 + "; Numero de Serie: " + serie1 + "\n\nPara solicitar um atendimento\ntécnico, leia o QRCODE e envie\na mensagem por Whatsapp -\nacrescente o defeito do\nequipamento"; 
+        var url1 = "https://api.whatsapp.com/send?phone=5511942162164&text=" + encodeURIComponent(mensagem1);
+        
+        const qrCode1 = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg",
+            data: "aaaaaaa",
+            image: "https://i.ibb.co/FB7bX14/Logo-Quadrada.png",
+            dotsOptions: {
+                color: "#000000",
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#FFFFFF",
+            },
+            imageOptions: {
+                margin: 0
+            }
+        });
+    
+        qrCode1.append(document.getElementById("qr1"));
+        document.getElementById("msg1").innerText = texto1;
+    };
+    </script>
+      <div class="container text-center">
+        <div class="row row-cols-auto">
+          <div class="col border border-warning">
+            <div class="row ">
+                <div class="col" id="qr1"></div>
+            </div>
+            <div class="row ">
+                <div class="col" id="msg1"></div>
+            </div>
+          </div>
+          
+          <div class="col border border-warning">
+            <div class="row ">
+                <div class="col" id="qr2"></div>
+            </div>
+            <div class="row ">
+                <div class="col" id="msg2"></div>
+            </div>
+          </div>
+
+          <div class="col border border-warning">
+            <div class="row ">
+                <div class="col" id="qr3"></div>
+            </div>
+            <div class="row ">
+                <div class="col" id="msg3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-auto">
+            <div class="col">
+  
+            </div>
+            <div class="col">
+  
+            </div>
+            <div class="col">
+              
+            </div>
+        </div>
+
+        <div class="row row-cols-auto">
+            <div class="col">
+  
+            </div>
+            <div class="col">
+  
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+
+
+      </div>
+</body>
+</html>
