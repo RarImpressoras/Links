@@ -12,7 +12,7 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Links - Your Name</title>
+    <title>Atendimento rápido</title>
     <style>
         body {
             background-color: #faf8ef;
@@ -55,18 +55,19 @@
         <div class="text-center media mt-5">
 
             <div class="media-body m-2">
-                <img src="LOGO.PNG " class="m-3 rounded-circle" alt="image" width="95px" height="95px">
+                <img src="assets/LOGO.PNG" class="m-3 rounded-circle" alt="image" width="95px" height="95px">
                 <h5 class="align-items-center mt-2">@rarimpressoras </h5>
-                <p>Olá!
-                    Clique nos botões abaixo de acordo com sua solicitação.</p>
+                <p>Olá! Clique nos botões abaixo de acordo com sua solicitação.</p>
             </div>
         </div>
         <div class="mt-4">
-            <a id="meu-link" href="https://api.whatsapp.com/send?phone=551126414299&text=" class="btn btn-outline-dark btn-block" role="button" target="_blank"><i
-                    class="fab fa-whatsapp"> &nbsp;</i>Atendimento por WhatsApp</a>
+            <a id="meu-link" href="https://api.whatsapp.com/send?phone=551126414299&text="
+                class="btn btn-outline-dark btn-block" role="button" target="_blank"><i class="fab fa-whatsapp">
+                    &nbsp;</i>Atendimento por WhatsApp</a>
             <br>
-            <a id="meu-link2" href="https://rarimpressoras.github.io/SolicitarChamados/" class="btn btn-outline-dark btn-block"
-                role="button" target="_blank"><i class="fab fa-codepen">&nbsp;</i>Atendimento pelo Site</a>
+            <a id="meu-link2" href="https://rarimpressoras.github.io/SolicitarChamados/"
+                class="btn btn-outline-dark btn-block" role="button" target="_blank"><i
+                    class="fab fa-codepen">&nbsp;</i>Atendimento pelo Site</a>
             <br>
             <a href="https://www.youtube.com/@EmpresaRAR" class="btn btn-outline-dark btn-block" role="button"
                 target="_blank"><i class="fab fa-youtube">&nbsp;</i>YouTube - Videos e Tutoriais</a>
@@ -110,8 +111,8 @@
 
         console.log(serie1); // 554415
         console.log(modelo1); // M2040
-        
-        var url2 = 'https://rarimpressoras.github.io/SolicitarChamados/autoatendimento.html'+'?' + query;
+
+        var url2 = 'https://rarimpressoras.github.io/SolicitarChamados/autoatendimento.html' + '?' + query;
         const link2 = document.getElementById("meu-link2");
 
         // define o valor do Href como a variável url1
@@ -122,8 +123,8 @@
 
         var mensagem1 = "Estou com problema na Impressora *" + modelo1 + "*, número de série *" + serie1 + "*";
         var url1 = "https://api.whatsapp.com/send?phone=551126414299&text=" + encodeURIComponent(mensagem1);
-         // obtém a referência ao link que deve ser atualizado
-      const link = document.getElementById("meu-link");
+        // obtém a referência ao link que deve ser atualizado
+        const link = document.getElementById("meu-link");
 
         // define o valor do Href como a variável url1
         link.href = url1;
